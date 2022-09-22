@@ -6,6 +6,8 @@ server = smtplib.SMTP('smtp.gmail.com', 587)
 # -- Login to Gmail account with SMTP -- #
 server.login('farjamautomatedsender@gmail.com', 'VerySecurePassword!')
 
+server.starttls()
+
 # -- Recieve destination and message -- #
 print('Send to: ')
 to = input()
