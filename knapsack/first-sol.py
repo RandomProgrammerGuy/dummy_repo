@@ -1,4 +1,3 @@
-
 ### KNAPSACK PROBLEM ##################################################################
 # SOLUTION #1                                                                         #
 # CODE WRITTEN BY @RandomProgrammerGuy ON GITHUB                                      #
@@ -75,6 +74,8 @@ for k in range(1, obj_list_len+1):
             max_value = value
 
 end_time = time()
+
+### Step 4 - Printing the results #####################################################
 
 print('Most efficient combination found :')
 print(max_value_combination)
