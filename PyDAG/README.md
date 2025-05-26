@@ -14,7 +14,7 @@ The `connection` class contains an `origin` and a `destination` attribute.
 
 The `graph` class contains the following methods:
 
-- `.is_cyclic()` : returns a `bool` indicating if a graph is cyclic
+- `.is_acyclic()` : returns a `bool` indicating if a graph is acyclic
 - `.transitive_closure()` : returns the transitive closure of the graph if it is a DAG, while not modifying the original graph
 - `.transitive_reduction()` : returns the transitive reduction of the graph if it is a DAG, while not modifying the original graph
 - `.topological_ordering()` : returns the topological ordering of the graph if it is a DAG, while not modifying the original graph
