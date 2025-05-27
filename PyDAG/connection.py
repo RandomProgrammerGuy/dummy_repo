@@ -9,4 +9,4 @@ class connection:
 
 
     def __str__(self):
-        return f"Connection from node {self.orig} to node {self.dest}"
+        return f"Connection from node with id {self.orig} to node with id {self.dest}"
