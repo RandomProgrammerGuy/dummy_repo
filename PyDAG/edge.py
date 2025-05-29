@@ -1,4 +1,4 @@
-class connection:
+class edge:
     orig = None
     dest = None
 
@@ -9,4 +9,4 @@ class connection:
 
 
     def __str__(self):
-        return f"Connection from node with id {self.orig} to node with id {self.dest}"
+        return f"Edge from node with id {self.orig} to node with id {self.dest}"

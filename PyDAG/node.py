@@ -1,26 +1,30 @@
-from connection import connection
+from PyDAG.edge import edge
 
 class node:
     id = None
     value = None
-    connections = []
+    edges = []
 
 
-    def __init__(self, new_id, val, conns):
+    def __init__(self, new_id, val, edge_list):
         self.id = new_id
         self.value = val
 
-        for connection in conns:
-            if connection.orig == self.id:
-                self.connections.append(connection)   
+        for edge in edge_list:
+            if edge.orig == self.id:
+                self.edges.append(edge)   
             else:
-                raise ValueError(f"{connection} in connections list does not originate from the node {self.value}")
+                raise ValueError(f"{edge} in edges list does not originate from the node {self.value}")
             
     
     def __str__(self):
-        returntext = f"Node ID: {self.id}, value: {self.value}. connections:\n"
+        returntext = f"Node ID: {self.id}, value: {self.value}. edges:\n"
         
-        for conn in self.connections:
-            returntext += f"{conn}\n"
+        for edge in self.edges:
+            returntext += f"{edge}\n"
 
         return returntext
+    
+
+    def edge_count(self):
+        return len(self.edges)

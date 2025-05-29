@@ -4,11 +4,11 @@ A Python implementation of Directed Acyclic Graphs (DAGs).
 
 ## Implementation
 
-The `graph` class contains a list of `node` objects, as well as the number of its nodes, stored in the `node_count` attribute. It also includes a `connections` attribute which is a list of all the different connections in the graph. Note that a `graph` object in this implementation is not necessarily cyclic.
+The `graph` class contains a list of `node` objects, as well as the number of its nodes, stored in the `node_count` attribute. It also includes a `edges` attribute which is a list of all the different edges in the graph. Note that a `graph` object in this implementation is not necessarily cyclic.
 
-The `node` class contains an `id` attribute, a `value` attribute and a `connections` attribute. The `connections` attribute only includes connections that **originate** from the node in question. The `connections` attribute in a `graph` object is constructed from the `connections` attributes in each node. The `id` attribute is used to identify nodes in the graph.
+The `node` class contains an `id` attribute, a `value` attribute and a `edges` attribute. The `edges` attribute only includes edges that **originate** from the node in question. The `edges` attribute in a `graph` object is constructed from the `edges` attributes in each node. The `id` attribute is used to identify nodes in the graph.
 
-The `connection` class contains an `origin` and a `destination` attribute. 
+The `edge` class contains an `origin` and a `destination` attribute. 
 
 ## Methods
 
