@@ -1,4 +1,4 @@
-from PyDAG.edge import edge
+from edge import edge
 
 class node:
     id = None
@@ -27,4 +27,5 @@ class node:
     
 
     def edge_count(self):
+        """Returns the number of edges that originate from a node"""
         return len(self.edges)
