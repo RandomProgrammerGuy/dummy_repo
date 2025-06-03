@@ -47,7 +47,7 @@ class graph:
         return False
     
 
-    def direct_connections_of(self, A : int):
+    def direct_edges_of(self, A : int):
         """
         Returns a list of the nodes directly accessible from a node
 
@@ -61,7 +61,6 @@ class graph:
                 nodes_list.append(edge.dest)
 
         return nodes_list
-    
 
     def path_between(self, A : int, B : int): # INCOMPLETE
         """
@@ -81,11 +80,11 @@ class graph:
         
         nodes_visited = []
 
-        nodes_visited += self.direct_connections_of(A)
+        nodes_visited += self.direct_edges_of(A)
 
         while len(nodes_visited) <= self.node_count:
             for node in nodes_visited:
-                current_node_edges = self.direct_connections_of(node)
+                current_node_edges = self.direct_edges_of(node)
 
                 for dest in current_node_edges:
                     if dest not in nodes_visited:
@@ -104,5 +103,48 @@ class graph:
             if self.path_between(node.id, node.id):
                 return True       
         return False
+    
+
+    def in_degree_of(self, A : int):
+        """Returns the in-degree of the node with an ID of A
+        
+        Keyword arguments:
+        A : int -- The id of the node
+        """
+        counter = 0
+
+        for edge in self.edges:
+            if edge.dest == A:
+                counter += 1
+
+        return counter
+
         
     
+    def topological_ordering(self):
+        """
+        Returns a topological ordering of the graph
+        """
+        queue = []
+        topological_ordering = []
+
+        for node in self.nodes:
+            if self.in_degree_of(node.id) == 0:
+                queue.append(node.id)
+
+        while len(queue) != 0:
+            current_elem = queue.pop(0)
+            topological_ordering.append(current_elem)
+
+            for i in range(len(self.edges)):
+                if self.edges[i].orig == current_elem:
+                    removed_edge = self.edges.pop(i)
+
+                    if self.in_degree_of(removed_edge.dest) == 0:
+                        if removed_edge.dest not in queue:
+                            queue.append(removed_edge.dest)
+
+                if i+1 >= len(self.edges):
+                    break
+
+        return topological_ordering
